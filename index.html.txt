@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUMERA OPTICA™ — Advanced Medical & Optometric AI Asset Suite</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            900: '#070b19',
+                            950: '#03050c',
+                        },
+                        neon: {
+                            blue: '#00f2fe',
+                            teal: '#4facfe',
+                            glow: '#00c6ff',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 25px rgba(0, 242, 254, 0.2); }
+            50% { box-shadow: 0 0 40px rgba(0, 242, 254, 0.4); }
+        }
+        .glow-card {
+            animation: pulse-glow 4s infinite ease-in-out;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+        .float-slow {
+            animation: float 6s ease-in-out infinite;
+        }
+        .bg-grid-pattern {
+            background-image: radial-gradient(rgba(0, 242, 254, 0.1) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+    </style>
+</head>
+<body class="bg-navy-950 text-slate-100 font-sans selection:bg-neon-blue selection:text-navy-950 antialiased overflow-x-hidden">
+
+    <!-- Notification Toast -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 bg-slate-900 border border-neon-blue/40 text-slate-100 px-5 py-3 rounded-xl shadow-2xl flex items-center space-x-3 rtl:space-x-reverse">
+        <i data-lucide="check-circle-2" class="w-5 h-5 text-neon-blue"></i>
+        <span id="toast-message" class="text-sm font-medium">Prompt copied to clipboard successfully!</span>
+    </div>
+
+    <!-- Background Glow Effects -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-gradient-to-b from-blue-600/15 via-cyan-500/10 to-transparent blur-3xl pointer-events-none -z-10"></div>
+    <div class="absolute top-[40%] right-[-10%] w-[600px] h-[600px] bg-neon-blue/5 rounded-full blur-3xl pointer-events-none -z-10"></div>
+
+    <!-- Navigation Bar -->
+    <header class="sticky top-0 z-40 backdrop-blur-xl bg-navy-950/80 border-b border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center shadow-lg shadow-cyan-500/20">
+                    <i data-lucide="eye" class="w-6 h-6 text-white"></i>
+                </div>
+                <div>
+                    <span class="text-lg font-extrabold tracking-wider bg-gradient-to-r from-white via-cyan-200 to-neon-blue bg-clip-text text-transparent">LUMERA OPTICA™</span>
+                    <span class="block text-[10px] tracking-widest text-cyan-400 font-semibold uppercase">Medical AI Suite</span>
+                </div>
+            </div>
+
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
+                <a href="#features" class="hover:text-neon-blue transition-colors">Features</a>
+                <a href="#prompts" class="hover:text-neon-blue transition-colors">Prompt Preview</a>
+                <a href="#pricing" class="hover:text-neon-blue transition-colors">Pricing</a>
+                <a href="#faq" class="hover:text-neon-blue transition-colors">FAQ</a>
+            </nav>
+
+            <div class="flex items-center space-x-4">
+                <a href="#pricing" class="relative group px-5 py-2.5 rounded-xl font-semibold text-sm overflow-hidden bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 transition-all duration-300">
+                    <span class="absolute inset-0 w-full h-full bg-white/20 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></span>
+                    Get Pro Suite
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-20 pb-32 px-6 bg-grid-pattern">
+        <div class="max-w-5xl mx-auto text-center">
+            
+            <!-- Rating Badge -->
+            <div class="inline-flex items-center space-x-2 bg-slate-900/90 border border-slate-800 px-4 py-2 rounded-full mb-8 shadow-inner">
+                <div class="flex text-amber-400 space-x-1">
+                    <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                </div>
+                <span class="text-xs font-semibold text-slate-300 border-l border-slate-700 pl-3">Trusted by 1,450+ Medical Researchers & Designers</span>
+            </div>
+
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6 leading-tight">
+                High-End Medical & <br>
+                <span class="bg-gradient-to-r from-neon-blue via-cyan-300 to-blue-500 bg-clip-text text-transparent">Optometric AI Prompts</span>
+            </h1>
+
+            <p class="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto mb-10 font-light leading-relaxed">
+                The definitive commercial AI prompt suite engineered for ophthalmologists, academic authors, and creative studios. Create pristine, text-free optical illustrations and clinical diagnostics instantly.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#pricing" class="w-full sm:w-auto px-8 py-4 rounded-xl font-bold bg-gradient-to-r from-neon-blue to-blue-600 text-navy-950 shadow-xl shadow-cyan-500/30 hover:scale-105 transition-transform duration-200 flex items-center justify-center space-x-2">
+                    <i data-lucide="zap" class="w-5 h-5"></i>
+                    <span>Unlock Pro Suite ($49)</span>
+                </a>
+                <a href="#prompts" class="w-full sm:w-auto px-8 py-4 rounded-xl font-semibold bg-slate-900/80 border border-slate-800 text-slate-200 hover:bg-slate-800/80 transition-colors flex items-center justify-center space-x-2">
+                    <i data-lucide="eye" class="w-5 h-5 text-cyan-400"></i>
+                    <span>Explore Prompt Library</span>
+                </a>
+            </div>
+
+            <!-- Features Quick Bar -->
+            <div class="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6 pt-10 border-t border-slate-800/60 text-left">
+                <div class="flex items-start space-x-3">
+                    <div class="p-2 rounded-lg bg-cyan-500/10 text-cyan-400 mt-1">
+                        <i data-lucide="check-circle" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm text-white">100% Text-Free</h4>
+                        <p class="text-xs text-slate-400">Strict negative prompt filters for clean output.</p>
+                    </div>
+                </div>
+                <div class="flex items-start space-x-3">
+                    <div class="p-2 rounded-lg bg-cyan-500/10 text-cyan-400 mt-1">
+                        <i data-lucide="cpu" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm text-white">Midjourney & DALL-E 3</h4>
+                        <p class="text-xs text-slate-400">Optimized for top generative engines.</p>
+                    </div>
+                </div>
+                <div class="flex items-start space-x-3">
+                    <div class="p-2 rounded-lg bg-cyan-500/10 text-cyan-400 mt-1">
+                        <i data-lucide="shield-check" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm text-white">Commercial License</h4>
+                        <p class="text-xs text-slate-400">Use in published textbooks and apps.</p>
+                    </div>
+                </div>
+                <div class="flex items-start space-x-3">
+                    <div class="p-2 rounded-lg bg-cyan-500/10 text-cyan-400 mt-1">
+                        <i data-lucide="download-cloud" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm text-white">Instant Access</h4>
+                        <p class="text-xs text-slate-400">Immediate download package upon checkout.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Interactive Prompt Library Section -->
+    <section id="prompts" class="py-24 px-6 bg-navy-900/40 border-y border-slate-800/60">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-neon-blue text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20">Live Prompt Vault</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-white mt-4 mb-4">Sample Prompts with One-Click Copy</h2>
+                <p class="text-slate-400 text-sm">Test drive our production-grade optical AI prompts right now. Click copy and paste into Midjourney, Stable Diffusion, or DALL-E.</p>
+            </div>
+
+            <!-- Prompt Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- Card 1 -->
+                <div class="glow-card bg-slate-900/90 border border-cyan-500/30 rounded-2xl p-6 relative flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 bg-cyan-500/10 text-cyan-400 text-xs font-semibold rounded-lg border border-cyan-500/20">Section 1: Optical Anatomy</span>
+                            <span class="text-xs text-slate-400 font-mono">v6.0 Ready</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Advanced Optical Eye & Ray Tracing</h3>
+                        <p class="text-xs text-slate-400 mb-4">Produces extreme precision cross-sections of light refraction through cornea and crystalline lens.</p>
+                        
+                        <div class="bg-navy-950 p-4 rounded-xl border border-slate-800 font-mono text-xs text-cyan-200 mb-4 select-all leading-relaxed" id="prompt-1">
+                            A hyper-realistic, cross-section anatomical illustration of the human eye focusing light rays through the cornea and crystalline lens onto the retina. Minimalist clinical blue and deep navy blue color palette, clean off-white background, scientific vector style, cinematic studio lighting, extreme optical precision, ultra-detailed --no text, letters, numbers, watermarks, typography
+                        </div>
+                    </div>
+                    
+                    <button onclick="copyPrompt('prompt-1')" class="w-full py-2.5 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 font-semibold text-xs flex items-center justify-center space-x-2 transition-all">
+                        <i data-lucide="copy" class="w-4 h-4"></i>
+                        <span>Copy Prompt String</span>
+                    </button>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="glow-card bg-slate-900/90 border border-cyan-500/30 rounded-2xl p-6 relative flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 bg-cyan-500/10 text-cyan-400 text-xs font-semibold rounded-lg border border-cyan-500/20">Section 2: Refractive Surgery</span>
+                            <span class="text-xs text-slate-400 font-mono">v6.0 Ready</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Femtosecond Laser LASIK Flap Creation</h3>
+                        <p class="text-xs text-slate-400 mb-4">Visualizes microscopic laser interactions on corneal stroma with surgical precision.</p>
+                        
+                        <div class="bg-navy-950 p-4 rounded-xl border border-slate-800 font-mono text-xs text-cyan-200 mb-4 select-all leading-relaxed" id="prompt-2">
+                            A macro clinical visualization of femtosecond laser precision creating a corneal flap for LASIK surgery. Glowing micro-beam touchpoint, deep navy blue and medical blue aesthetic, dark charcoal surgical background, hyper-realistic medical optics illustration --no text, letters, numbers, watermarks, typography
+                        </div>
+                    </div>
+                    
+                    <button onclick="copyPrompt('prompt-2')" class="w-full py-2.5 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 font-semibold text-xs flex items-center justify-center space-x-2 transition-all">
+                        <i data-lucide="copy" class="w-4 h-4"></i>
+                        <span>Copy Prompt String</span>
+                    </button>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="glow-card bg-slate-900/90 border border-cyan-500/30 rounded-2xl p-6 relative flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 bg-cyan-500/10 text-cyan-400 text-xs font-semibold rounded-lg border border-cyan-500/20">Section 3: Retinal Pathology</span>
+                            <span class="text-xs text-slate-400 font-mono">v6.0 Ready</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Retinal Fundus & Macular Degeneration</h3>
+                        <p class="text-xs text-slate-400 mb-4">Detailed microscopic micro-vessel angiography and drusen deposit rendering.</p>
+                        
+                        <div class="bg-navy-950 p-4 rounded-xl border border-slate-800 font-mono text-xs text-cyan-200 mb-4 select-all leading-relaxed" id="prompt-3">
+                            A high-resolution microscopic clinical visualization of the human retinal blood vessels and macula. Deep navy blue and clinical dark backdrop, luminous fluorescent angiography style with precise micro-vessel details, minimalist scientific publication aesthetic --no text, letters, numbers, watermarks, typography
+                        </div>
+                    </div>
+                    
+                    <button onclick="copyPrompt('prompt-3')" class="w-full py-2.5 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 font-semibold text-xs flex items-center justify-center space-x-2 transition-all">
+                        <i data-lucide="copy" class="w-4 h-4"></i>
+                        <span>Copy Prompt String</span>
+                    </button>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="glow-card bg-slate-900/90 border border-cyan-500/30 rounded-2xl p-6 relative flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 bg-cyan-500/10 text-cyan-400 text-xs font-semibold rounded-lg border border-cyan-500/20">Section 4: Glaucoma & OCT</span>
+                            <span class="text-xs text-slate-400 font-mono">v6.0 Ready</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Optic Disc & OCT Scan Visualization</h3>
+                        <p class="text-xs text-slate-400 mb-4">Comparative cup-to-disc ratio and peripapillary retinal nerve fiber layer mapping.</p>
+                        
+                        <div class="bg-navy-950 p-4 rounded-xl border border-slate-800 font-mono text-xs text-cyan-200 mb-4 select-all leading-relaxed" id="prompt-4">
+                            A sophisticated 3D optical coherence tomography scan visualization of the peripapillary retinal nerve fiber layer. Vivid clinical gradient from cool blues to warm amber accents, sleek dark technical background, precision diagnostic medical imaging --no text, labels, letters, watermark, typography
+                        </div>
+                    </div>
+                    
+                    <button onclick="copyPrompt('prompt-4')" class="w-full py-2.5 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 font-semibold text-xs flex items-center justify-center space-x-2 transition-all">
+                        <i data-lucide="copy" class="w-4 h-4"></i>
+                        <span>Copy Prompt String</span>
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-24 px-6 relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-neon-blue text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20">Commercial Investment</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-white mt-4 mb-4">Choose Your Suite License</h2>
+                <p class="text-slate-400 text-sm">One-time purchase. Lifetime access to future prompt updates and master guides.</p>
+            </div>
+
+            <!-- Pricing Tiers Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+                
+                <!-- Tier 1: Starter Kit -->
+                <div class="bg-slate-900/60 border border-slate-800 rounded-3xl p-8 flex flex-col justify-between hover:border-slate-700 transition-all">
+                    <div>
+                        <h3 class="text-lg font-bold text-white mb-2">Starter Kit</h3>
+                        <p class="text-xs text-slate-400 mb-6">Essential optical anatomy and basic refraction prompts for students.</p>
+                        
+                        <div class="flex items-baseline mb-6">
+                            <span class="text-4xl font-extrabold text-white">$19</span>
+                            <span class="text-slate-400 text-xs ml-2">/ one-time</span>
+                        </div>
+
+                        <ul class="space-y-3 text-sm text-slate-300 mb-8">
+                            <li class="flex items-center space-x-3">
+                                <i data-lucide="check" class="w-4 h-4 text-cyan-400"></i>
+                                <span>Core Optical Anatomy Prompts</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <i data-lucide="check" class="w-4 h-4 text-cyan-400"></i>
+                                <span>Basic Corrective Lens Ray Tracing</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <i data-lucide="check" class="w-4 h-4 text-cyan-400"></i>
+                                <span>Personal License</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <button onclick="openCheckout('Starter Kit', '$19')" class="w-full py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold text-sm transition-colors">
+                        Select Starter
+                    </button>
+                </div>
+
+                <!-- Tier 2: Pro Suite (Featured) -->
+                <div class="bg-gradient-to-b from-cyan-950/40 via-slate-900 to-slate-900 border-2 border-neon-blue rounded-3xl p-8 flex flex-col justify-between relative shadow-2xl shadow-cyan-500/10">
+                    <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-neon-blue to-blue-600 text-navy-950 font-extrabold text-[10px] uppercase tracking-widest px-4 py-1 rounded-full shadow-lg">
+                        Most Popular
+                    </div>
+
+                    <div>
+                        <h3 class="text-xl font-bold text-white mb-2">Pro Suite</h3>
+                        <p class="text-xs text-slate-300 mb-6">Full comprehensive toolkit for clinics, authors, and professional designers.</p>
+                        
+                        <div class="flex items-baseline mb-6">
+                            <span class="text-5xl font-extrabold text-white">$49</span>
+                            <span class="text-slate-400 text-xs ml-2">/ one-time</span>
+                        </div>
+
+                        <ul class="space-y-3 text-sm text-slate-200 mb-8">
+                            <li class="flex items-center space-x-3">
+                                <i data-lucide="check" class="w-4 h-4 text-neon-blue"></i>
+                                <span>All 4 Advanced Sections (25+ Prompts)</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <i data-lucide="check" class="w-4 h-4 text-neon-blue"></i>
+                                <span>Refractive Surgeries (LASIK / PRK)</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <i data-lucide="check" class="w-4 h-4 text-neon-blue"></i>
+                                <span>Retinal Pathology & Glaucoma OCT</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <i data-lucide="check" class="w-4 h-4 text-neon-blue"></i>
+                                <span>Full Commercial License</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <i data-lucide="check" class="w-4 h-4 text-neon-blue"></i>
+                                <span>Lifetime Free Updates</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <button onclick="openCheckout('Pro Suite', '$49')" class="w-full py-4 rounded-xl bg-gradient-to-r from-neon-blue to-blue-600 text-navy-950 font-bold text-sm shadow-xl shadow-cyan-500/30 hover:scale-[1.02] transition-transform">
+                        Get Pro Suite Now
+                    </button>
+                </div>
+
+                <!-- Tier 3: Enterprise / Agency -->
+                <div class="bg-slate-900/60 border border-slate-800 rounded-3xl p-8 flex flex-col justify-between hover:border-slate-700 transition-all">
+                    <div>
+                        <h3 class="text-lg font-bold text-white mb-2">Agency & Enterprise</h3>
+                        <p class="text-xs text-slate-400 mb-6">For multi-author publishing houses, medical agencies, and institutions.</p>
+                        
+                        <div class="flex items-baseline mb-6">
+                            <span class="text-4xl font-extrabold text-white">$149</span>
+                            <span class="text-slate-400 text-xs ml-2">/ team license</span>
+                        </div>
+
+                        <ul class="space-y-3 text-sm text-slate-300 mb-8">
+                            <li class="flex items-center space-x-3">
+                                <i data-lucide="check" class="w-4 h-4 text-cyan-400"></i>
+                                <span>Everything in Pro Suite</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <i data-lucide="check" class="w-4 h-4 text-cyan-400"></i>
+                                <span>Multi-Seat Team Access (Up to 10)</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <i data-lucide="check" class="w-4 h-4 text-cyan-400"></i>
+                                <span>Priority 1-on-1 Prompt Engineering Support</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <button onclick="openCheckout('Enterprise License', '$149')" class="w-full py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold text-sm transition-colors">
+                        Select Enterprise
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-24 px-6 bg-navy-900/40 border-t border-slate-800/60">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-neon-blue text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20">Got Questions?</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-white mt-4 mb-4">Frequently Asked Questions</h2>
+            </div>
+
+            <div class="space-y-4">
+                
+                <div class="bg-slate-900/80 border border-slate-800 rounded-2xl overflow-hidden">
+                    <button onclick="toggleFaq(1)" class="w-full p-6 text-left font-semibold text-white flex items-center justify-between focus:outline-none">
+                        <span>Which AI generators are these prompts compatible with?</span>
+                        <i id="faq-icon-1" data-lucide="chevron-down" class="w-5 h-5 text-cyan-400 transition-transform"></i>
+                    </button>
+                    <div id="faq-content-1" class="hidden px-6 pb-6 text-sm text-slate-400 leading-relaxed border-t border-slate-800/60 pt-4">
+                        Our prompts are meticulously optimized for Midjourney (v6.0+), DALL-E 3, and Stable Diffusion XL. They include negative weight parameters to ensure clean, text-free medical illustrations.
+                    </div>
+                </div>
+
+                <div class="bg-slate-900/80 border border-slate-800 rounded-2xl overflow-hidden">
+                    <button onclick="toggleFaq(2)" class="w-full p-6 text-left font-semibold text-white flex items-center justify-between focus:outline-none">
+                        <span>What is included in the commercial license?</span>
+                        <i id="faq-icon-2" data-lucide="chevron-down" class="w-5 h-5 text-cyan-400 transition-transform"></i>
+                    </button>
+                    <div id="faq-content-2" class="hidden px-6 pb-6 text-sm text-slate-400 leading-relaxed border-t border-slate-800/60 pt-4">
+                        With the Pro and Enterprise licenses, you have full rights to use generated imagery in commercial textbooks, academic papers, clinical presentations, software applications, and marketing materials without attribution.
+                    </div>
+                </div>
+
+                <div class="bg-slate-900/80 border border-slate-800 rounded-2xl overflow-hidden">
+                    <button onclick="toggleFaq(3)" class="w-full p-6 text-left font-semibold text-white flex items-center justify-between focus:outline-none">
+                        <span>How do I receive the files after checkout?</span>
+                        <i id="faq-icon-3" data-lucide="chevron-down" class="w-5 h-5 text-cyan-400 transition-transform"></i>
+                    </button>
+                    <div id="faq-content-3" class="hidden px-6 pb-6 text-sm text-slate-400 leading-relaxed border-t border-slate-800/60 pt-4">
+                        Immediately after secure checkout, you will receive an instant download link to the comprehensive Markdown and PDF prompt workbook, along with access to our private prompt updates repository.
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 border-t border-slate-800 text-center text-xs text-slate-500">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="flex items-center space-x-2">
+                <span class="font-bold text-slate-300">LUMERA OPTICA™</span>
+                <span>— Advanced Medical & Optometric AI Suite. All rights reserved.</span>
+            </div>
+            <div class="flex space-x-6 text-slate-400">
+                <a href="#" class="hover:text-neon-blue transition-colors">Privacy Policy</a>
+                <a href="#" class="hover:text-neon-blue transition-colors">Terms of Service</a>
+                <a href="#" class="hover:text-neon-blue transition-colors">Support</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Checkout Modal -->
+    <div id="checkout-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-navy-950/80 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="bg-slate-900 border border-cyan-500/40 rounded-3xl p-8 max-w-md w-full mx-4 shadow-2xl relative transform scale-95 transition-transform duration-300" id="modal-container">
+            <button onclick="closeCheckout()" class="absolute top-6 right-6 text-slate-400 hover:text-white">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+
+            <div class="flex items-center space-x-3 mb-6">
+                <div class="w-10 h-10 rounded-xl bg-cyan-500/10 flex items-center justify-center text-cyan-400 border border-cyan-500/30">
+                    <i data-lucide="shield-check" class="w-6 h-6"></i>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-white" id="modal-title">Secure Checkout</h3>
+                    <p class="text-xs text-slate-400">Instant digital delivery</p>
+                </div>
+            </div>
+
+            <div class="bg-navy-950 p-4 rounded-2xl border border-slate-800 mb-6 flex items-center justify-between">
+                <div>
+                    <span class="block text-xs text-slate-400">Selected License</span>
+                    <span id="modal-plan-name" class="font-bold text-white text-sm">Pro Suite</span>
+                </div>
+                <div class="text-right">
+                    <span class="block text-xs text-slate-400">Total</span>
+                    <span id="modal-plan-price" class="font-extrabold text-neon-blue text-xl">$49</span>
+                </div>
+            </div>
+
+            <form onsubmit="handleCheckoutSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-2">Email Address</label>
+                    <input type="email" required placeholder="name@institution.com" class="w-full bg-navy-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-cyan-500">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-2">Card Information</label>
+                    <input type="text" required placeholder="4242 •••• •••• 4242" class="w-full bg-navy-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-cyan-500 font-mono">
+                </div>
+
+                <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-neon-blue to-blue-600 text-navy-950 font-bold text-sm shadow-xl shadow-cyan-500/30 hover:scale-[1.02] transition-transform mt-2">
+                    Complete Secure Purchase
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Copy Prompt Function
+        function copyPrompt(elementId) {
+            const promptText = document.getElementById(elementId).innerText;
+            const textarea = document.createElement('textarea');
+            textarea.value = promptText;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+
+            showToast('Prompt copied to clipboard successfully!');
+        }
+
+        // Toast Notification
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-message');
+            toastMsg.innerText = message;
+            toast.classList.remove('translate-y-24', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-24', 'opacity-0');
+            }, 3000);
+        }
+
+        // FAQ Accordion
+        function toggleFaq(id) {
+            const content = document.getElementById(`faq-content-${id}`);
+            const icon = document.getElementById(`faq-icon-${id}`);
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                content.classList.add('hidden');
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        // Checkout Modal Functions
+        function openCheckout(planName, planPrice) {
+            document.getElementById('modal-plan-name').innerText = planName;
+            document.getElementById('modal-plan-price').innerText = planPrice;
+            const modal = document.getElementById('checkout-modal');
+            const container = document.getElementById('modal-container');
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            container.classList.remove('scale-95');
+            container.classList.add('scale-100');
+        }
+
+        function closeCheckout() {
+            const modal = document.getElementById('checkout-modal');
+            const container = document.getElementById('modal-container');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            container.classList.remove('scale-100');
+            container.classList.add('scale-95');
+        }
+
+        function handleCheckoutSubmit(event) {
+            event.preventDefault();
+            closeCheckout();
+            showToast('Payment successful! Your download link has been emailed.');
+        }
+    </script>
+</body>
+</html>
